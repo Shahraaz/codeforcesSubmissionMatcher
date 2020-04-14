@@ -22,7 +22,12 @@ def check(code, patt):
     return True
 
 
+submissionIds = set()
+
 def checkSubmission(submissionId):
+    if submissionId in submissionIds:
+        return False
+    submissionIds.add(submissionId)
     Url = pref + "/submission/" + submissionId
     resp = requests.get(Url).text
     i = resp.find("href=\"/profile/")
