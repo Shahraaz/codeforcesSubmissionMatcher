@@ -1,7 +1,7 @@
 # codeforcesSubmissionMatcher
 This program scrapes the solutions from codeforces and matches with user template
 
-This code checks if code written in [toMatch.txt](https://github.com/Shahraaz/codeforcesSubmissionMatcher/blob/master/toMatch.txt) is a prefix of submission on codeforces status page(Contest Id is to be provided by you in main.py).
+This code checks if code written in [toMatch.txt](https://github.com/Shahraaz/codeforcesSubmissionMatcher/blob/master/toMatch.txt) is a prefix of submission on codeforces status page(Contest Id is to be provided by you in main.py) upto a page limit that is to be set by you.
 
 Keep in mind Codeforces has a different format for code. All new line, tabs, spaces are converted to space itself.
 
