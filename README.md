@@ -3,7 +3,7 @@ This program scrapes the solutions from codeforces and matches with user templat
 
 This code checks if code written in [toMatch.txt](https://github.com/Shahraaz/codeforcesSubmissionMatcher/blob/master/toMatch.txt) is a prefix of submission on codeforces status page(Contest Id is to be provided by you in main.py).
 
-Keep in mind Codeforces has a different format for code.
+Keep in mind Codeforces has a different format for code. All new line, tabs, spaces are converted to space itself.
 
 Original
 
@@ -30,6 +30,6 @@ int main()
    long int t;
     cin&gt;&gt;t;
     while(t--)
-{
+    {
 ```
 
