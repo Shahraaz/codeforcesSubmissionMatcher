@@ -5,7 +5,7 @@ with open('toMatch.txt') as f:
 
 s = s.split()
 ContestId = "1335"
-LIM = 1
+LIM = 3000
 pref = "https://codeforces.com/contest/" + ContestId
 
 myset = set()
@@ -23,6 +23,7 @@ def check(code, patt):
 
 
 submissionIds = set()
+
 
 def checkSubmission(submissionId):
     if submissionId in submissionIds:
@@ -59,9 +60,10 @@ def checkSubmission(submissionId):
         myset.add(userName)
 
 
-for i in range(LIM):
+for l in range(LIM):
+    print(l)
     try:
-        Url = pref + "/status/page/" + str(i + 1) + "?order=BY_JUDGED_DESC"
+        Url = pref + "/status/page/" + str(l + 1) + "?order=BY_JUDGED_DESC"
         resp = requests.get(Url).text
         i = 0
         while True:
@@ -74,8 +76,16 @@ for i in range(LIM):
             j = resp.find("\"", k)
             if j == -1:
                 break
-            print(resp[k:j])
-            checkSubmission(resp[k:j])
+            l = resp.find("<a href=\"/contest/" + ContestId + "/problem/", j)
+            m = l + len("<a href=\"/contest/" + ContestId + "/problem/") + 1
+            # print(resp[m-1])
+            if resp[m-1] == 'A':
+                l = resp.find("submissionVerdict=\"", m)
+                m = l + len("submissionVerdict=\"")
+                # print(resp[m:m+2])
+                if resp[m:m+2] == "OK":
+                    print(resp[k:j])
+                    checkSubmission(resp[k:j])
             i = j
     except:
         print("Error\n")
