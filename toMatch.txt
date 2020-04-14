@@ -1,0 +1,10 @@
+#include&lt;iostream&gt;
+#include&lt;bits/stdc++.h&gt; 
+using namespace std;
+int main()
+{
+   long int t;
+    cin&gt;&gt;t;
+    while(t--)
+{
+    

@@ -1,0 +1,30 @@
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long int
+#define endl &#39;\n&#39;
+int32_t main(){
+	int t;
+	cin&gt;&gt;t;
+	while(t--){
+		int n;
+		cin&gt;&gt;n;
+		int arr[n];
+		for(int i=0;i&lt;n;i++){
+			cin&gt;&gt;arr[i];
+		}
+		int sec=0;
+		int diff=-1;
+		for(int i=1;i&lt;n;i++){
+			if(arr[i] &gt;= arr[i-1]){
+				continue;
+			}
+			diff = max(diff,arr[i-1]-arr[i]);
+		}
+		int temp=0;
+		while(temp&lt;diff){
+			temp += pow(2,sec);
+			sec++;
+		}
+		cout&lt;&lt;sec&lt;&lt;endl;
+	}
+}
